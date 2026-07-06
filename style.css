@@ -1,0 +1,276 @@
+/* ===========================
+   RESET
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===========================
+   GERAL
+=========================== */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgb(247, 247, 247);
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+#logo {
+    width: 120px;
+    height: auto;
+}
+
+h1 {
+    font-family: "Dancing Script", cursive;
+    color: rgba(134, 86, 40);
+    font-size: 28px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===========================
+   PESQUISA
+=========================== */
+
+#pesquisa {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 16px;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   CATEGORIAS
+=========================== */
+
+#categorias {
+    display: flex;
+
+    gap: 10px;
+
+    overflow-x: auto;
+
+    padding: 15px;
+
+    background: white;
+
+    position: sticky;
+
+    top: 180px;
+
+    z-index: 999;
+}
+
+#categorias button {
+    border: none;
+
+    background: #eeeeee;
+
+    padding: 10px 18px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: 0.3s;
+}
+
+#categorias button:hover {
+    background: rgba(134, 86, 40);
+
+    color: white;
+}
+
+#categorias button.ativo {
+    background: rgba(134, 86, 40);
+
+    color: white;
+}
+
+/* ===========================
+   PRODUTOS
+=========================== */
+
+#produtos {
+    max-width: 1400px;
+    background: rgb(255, 255, 255);
+    margin: auto;
+
+    padding: 25px;
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+
+    gap: 20px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.card {
+    background: white;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    transition: 0.25s;
+
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    transition: 0.2s;
+    cursor: pointer;
+    border: 1px solid #eeeeee; /* Uma bordinha sutil para dar acabamento */
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info {
+    padding: 18px; /* Mais espaço interno para o texto respirar */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.info h2 {
+    font-size: 18px;
+    margin-bottom: 0;
+    color: #333;
+    font-weight: 600;
+}
+
+.preco {
+    color: rgba(134, 86, 40);
+    font-size: 24px;
+    font-weight: bold;
+    /* Removemos a borda do topo antiga já que não tem mais foto */
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* ===========================
+   RESPONSIVO (CELULARES)
+=========================== */
+
+@media (max-width: 600px) {
+    header {
+        padding: 15px 10px;
+    }
+
+    #logo {
+        width: 90px; /* Reduz um pouco o logo para sobrar espaço */
+    }
+
+    h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    #pesquisa {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    /* Cola o menu de categorias mais perto do topo ao rolar a página */
+    #categorias {
+        top: 145px;
+        padding: 10px;
+        gap: 8px;
+    }
+
+    #categorias button {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    /* Exibe 2 produtos por linha no celular (estilo iFood) */
+    #produtos {
+        padding: 12px;
+        gap: 10px;
+        grid-template-columns: repeat(
+            2,
+            1fr
+        ); /* Mantém 2 por linha para caber mais na tela */
+    }
+
+    .info {
+        padding: 12px;
+    }
+
+    .info h2 {
+        font-size: 15px;
+        font-weight: 600;
+
+        /* Bloco obrigatório para o line-clamp funcionar: */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+
+        height: 38px; /* Força uma altura fixa para alinhar os cards */
+    }
+
+    .preco {
+        font-size: 20px; /* Preço bem destacado no celular */
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
+    }
+}
